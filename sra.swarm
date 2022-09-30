@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+out_dir="../microbio_spectrum"
+
+mkdir -p  /data/$USER/sra
+module load sratoolkit
+fasterq-dump  -t /lscratch/$SLURM_JOBID -O $out_dir SRR17380241
+fasterq-dump  -t /lscratch/$SLURM_JOBID -O $out_dir SRR17380245 
+fasterq-dump  -t /lscratch/$SLURM_JOBID -O $out_dir SRR17380243
+fasterq-dump  -t /lscratch/$SLURM_JOBID -O $out_dir SRR17380246
+fasterq-dump  -t /lscratch/$SLURM_JOBID -O $out_dir SRR17380244
