@@ -6,5 +6,5 @@ read -p "Enter the search text:" search
 read -p "Enter the replace text:" replace
 
 # Rename all files that match with the pattern
-echo $(rename "s/.$search/.$replace/" *)
+echo $(rename "$search" "$replace" *)
 echo "The files are renamed."
