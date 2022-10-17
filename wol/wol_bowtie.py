@@ -27,5 +27,5 @@ with open(os.path.join(args.output, "submit.sh"), "w") as f:
 
     for pair in paired_files:
         prefix = pair[0].split("/")[-1].split("_")[0]
-        line = """bowtie2 -p 16 -x /data/TBHD_share/valencia/pipelines/woltka/db/databases/bowtie2/WoLr1 -1 {} -2 {} --very-sensitive --no-head --no-unal -k 16 --np 1 --mp "1,1" --rdg "0,1" --rfg "0,1" --score-min "L,0,-0.05" | cut -f1-9 | sed 's/$/\\t*\\t*/' | gzip > {}.sam.gz""".format(pair[0], pair[1], prefix)
+        line = """bowtie2 -p 16 -x /data/TBHD_share/valencia/pipelines/woltka_db/databases/bowtie2/WoLr1 -1 {} -2 {} --very-sensitive --no-head --no-unal -k 16 --np 1 --mp "1,1" --rdg "0,1" --rfg "0,1" --score-min "L,0,-0.05" | cut -f1-9 | sed 's/$/\\t*\\t*/' | gzip > {}.sam.gz""".format(pair[0], pair[1], prefix)
         f.write(line + "\n")
