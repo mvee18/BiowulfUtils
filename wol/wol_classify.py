@@ -18,8 +18,8 @@ line = """woltka classify -i {} --to-tsv -o {}_classify -r genus,species --map /
 
 with open("submit_classify.sh", "w") as f:
     f.write("#!/bin/bash\n\n")
-    f.write("# SBATCH --mem=64gb\n")
-    f.write("# SBATCH --cpus-per-task=16\n\n")
+    f.write("#SBATCH --mem=64gb\n")
+    f.write("#SBATCH --cpus-per-task=16\n\n")
 
     for file in sam_files:
         print(file)

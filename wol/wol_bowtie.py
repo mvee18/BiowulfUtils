@@ -4,8 +4,8 @@ import argparse
 # Parse the command line arguments
 # We need one for input and one for output.
 parser = argparse.ArgumentParser()
-parser.add_argument('--input', type=str, required=True)
-parser.add_argument('--output', type=str, required=True)
+parser.add_argument('-i', '--input', type=str, required=True)
+parser.add_argument('-o', '--output', type=str, required=True)
 args = parser.parse_args()
 
 files = []
