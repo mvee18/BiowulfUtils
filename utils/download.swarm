@@ -1,0 +1,13 @@
+!#/bin/bash
+
+#SWARM -t 8 -g 16 --time 04:00:00module load sratoolkit
+fasterq-dump -t /lscratch/$SLURM_JOBID -O /Volumes/TBHD_share/valencia/pipelines/scripts/utils SRR539308
+fasterq-dump -t /lscratch/$SLURM_JOBID -O /Volumes/TBHD_share/valencia/pipelines/scripts/utils SRR539324
+fasterq-dump -t /lscratch/$SLURM_JOBID -O /Volumes/TBHD_share/valencia/pipelines/scripts/utils SRR539330
+fasterq-dump -t /lscratch/$SLURM_JOBID -O /Volumes/TBHD_share/valencia/pipelines/scripts/utils SRR539331
+fasterq-dump -t /lscratch/$SLURM_JOBID -O /Volumes/TBHD_share/valencia/pipelines/scripts/utils SRR539333
+fasterq-dump -t /lscratch/$SLURM_JOBID -O /Volumes/TBHD_share/valencia/pipelines/scripts/utils SRR539335
+fasterq-dump -t /lscratch/$SLURM_JOBID -O /Volumes/TBHD_share/valencia/pipelines/scripts/utils SRR539418
+fasterq-dump -t /lscratch/$SLURM_JOBID -O /Volumes/TBHD_share/valencia/pipelines/scripts/utils SRR539427
+fasterq-dump -t /lscratch/$SLURM_JOBID -O /Volumes/TBHD_share/valencia/pipelines/scripts/utils SRR539432
+fasterq-dump -t /lscratch/$SLURM_JOBID -O /Volumes/TBHD_share/valencia/pipelines/scripts/utils SRR539443

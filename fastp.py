@@ -11,7 +11,7 @@ The fastp parameters (different from the default) are:
 """
 
 parser = argparse.ArgumentParser(
-    description='Gather WOL data from Woltka classify.')
+    description='Generates a swarm file to run fastp on paired-end reads.')
 parser.add_argument('-i', '--input', type=str, required=True,
                     help='Input dir.')
 parser.add_argument('-o', '--output', type=str, required=True,
@@ -64,7 +64,8 @@ if __name__ == "__main__":
                 args.output, os.path.basename(i[1]).split(".")[0]))
             f.write(
                 f"fastp -i {os.path.abspath(i[0])} -I {os.path.abspath(i[1])} -o {out1}.fastp.fastq -O {out2}.fastp.fastq "
-                f"-q {args.quality} --cut_front --cut_tail -l 100 "
+                f"-q {args.quality} --cut_front --cut_tail\n"
+		# f"-l 100 "
                 # Cut 15 from the front, and 75 from the back.
-                f"-f 15 -t 75\n"
+                # f"-f 15 -t 75\n"
             )
