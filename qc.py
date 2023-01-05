@@ -2,7 +2,7 @@ import os
 import argparse
 
 parser = argparse.ArgumentParser(
-    description='Gather WOL data from Woltka classify.')
+    description='Generates swarm file for running fastQC on files in input directory.')
 parser.add_argument('-i', '--input', type=str, required=True,
                     help='Input dir.')
 parser.add_argument('-o', '--output', type=str, required=True,
