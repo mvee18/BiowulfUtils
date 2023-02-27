@@ -20,9 +20,6 @@ def parse_arguments() -> argparse.Namespace:
     return args
 
 
-line = """kneaddata --i {} --i {} --output {} --reference-db /fdb/kneaddata/Homo_sapiens_Bowtie2_v0.1/ -p {} -t {}\n"""
-
-
 def find_and_zip_files(dir_fp: str, ext: str) -> List[Tuple[str, str]]:
     files = os.listdir(dir_fp)
     files = [f for f in files if f.endswith(f".{ext}")]
@@ -43,15 +40,29 @@ def main():
 
     paired_files = find_and_zip_files(input_abs, args.extension)
 
-    with open(os.path.join(output_abs, "submit_decontaminate.swarm"), "w") as f:
+    write_kraken2_decontam(paired_files, output_abs, args.tasks)
+
+
+def write_decontaminate_swarm(paired_files, output_dir, cpus):
+    line = """kneaddata --i {} --i {} --output {} --reference-db /fdb/kneaddata/Homo_sapiens_Bowtie2_v0.1/ -p {} -t {}\n"""
+
+    with open(os.path.join(output_dir, "submit_decontaminate.swarm"), "w") as f:
         f.write(
-            f"#SWARM -t {args.tasks} -g 64 --time 04:00:00 --module kneaddata\n")
+            f"#SWARM -t {cpus} -g 64 --time 04:00:00 --module kneaddata\n")
 
         for (r1, r2) in paired_files:
             formatted_line = line.format(
-                r1, r2, output_abs, args.tasks, args.tasks*2)
+                r1, r2, output_dir, cpus, cpus*2)
             f.write(formatted_line)
 
+def write_kraken2_decontam(paired_files, output_dir, cpus):
+    line = "kraken2 --use-names --gzip-compressed --threads $SLURM_CPUS_PER_TASK \
+            --confidence 0.0 --db $KRAKEN_DB \
+            --paired ${tmpDIR}/${f}_R1_te.fastq.gz ${tmpDIR}/${f}_R2_te.fastq.gz \
+            --unclassified-out ${outdir}/${f}_R#_ted.fastq \
+            --output ${logdir}/${f}_kr2_decontamLOG.txt \
+            --report ${logdir}/${f}_kr2_decontamREPORT.txt"
 
+    print(line)
 if __name__ == '__main__':
     main()

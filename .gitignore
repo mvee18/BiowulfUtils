@@ -3,3 +3,4 @@ FeQC
 .DS_Store
 *._.*
 .venv
+__pycache__

@@ -1,0 +1,1 @@
+swarm -g 246 -t 56 --time=24:00:00 --module R,samtools --gres=lscratch:400 -f JAMS.swarm
