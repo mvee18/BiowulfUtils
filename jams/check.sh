@@ -1,9 +1,50 @@
 # Checks the directory for failed swarm jobs, then gets the lines from the JAMS.swarm file to make a resubmission script. 
 # The new failed.swarm file will be placed in the same directory as the old swarm script.
-input_dir=$(realpath $1)
-swarm_file=$(realpath $2)
-new_swarm=$(dirname $swarm_file)/failed.swarm
 
+Help()
+{
+   # Display Help
+   echo "Generates a new swarm file from failed JAMS jobs"
+   echo
+   echo "Syntax: check.sh -i [input_dir] -s [swarm_file]"
+   echo "options:"
+   echo "h     Print this Help."
+   echo "i     The input directory with the JAMS logs."
+   echo "s     The JAMS.swarm file containing the jobs."
+   echo
+}
+
+while getopts ":h:i:s:" option; do
+   case $option in
+      h) # display Help
+         Help
+         exit;;
+      i) # Input Directory
+	 input_dir=$(realpath $OPTARG);;
+	 # input_dir=$OPTARG;;
+      s) # Original SWARM file
+	 swarm_file=$(realpath $OPTARG);;
+	 # swarm_file=$OPTARG;;
+     \?) # Invalid option
+         echo "Error: Invalid option"
+         exit;;
+   esac
+done
+
+# Test that both the i and s options were passed.
+if [ -z "$input_dir" ]
+then
+   Help
+   exit
+fi
+
+if [ -z "$swarm_file" ]
+then
+   Help
+   exit
+fi
+
+new_swarm=$(dirname $swarm_file)/failed.swarm
 jams_success="Thank you for using JAMS. Use JAMSbeta to compare between JAMS samples."
 echo $new_swarm
 
@@ -29,7 +70,7 @@ grep -L "$jams_success" $input_dir/*.log | while read -r line ; do
 	# Need to get sampleID from the filepath.
 	id=$(basename $line | cut -f 1 -d "." | cut -f 1 -d "_")	
 	echo "Writing: $id"
-	grep "$id" $2 >> $new_swarm
+	grep "$id" $swarm_file >> $new_swarm
 done	
 
 echo "Swarm file written to $new_swarm."
