@@ -1,0 +1,151 @@
+INFO [2023-03-08 14:19:20] JAMS - Just A Microbiology System
+INFO [2023-03-08 14:19:20] Version JAMS v1.8.3
+INFO [2023-03-08 14:19:20] By: John McCulloch [aut, cre]; Jonathan Badger [aut]; Nikki Cannon [ctb]; Richard Rodrigues [ctb]; Ascharya Balaji [ctb]; Lisa Thammavong [ctb]; Amiran Dzutsev [ctb]; Giorgio Trinchieri [ctb]
+INFO [2023-03-08 14:19:20] Creating Sample output directory
+INFO [2023-03-08 14:19:32] Database directory is /data/TBHD_share/valencia/jams_db/JAMSdb202212
+INFO [2023-03-08 14:19:32] Output directory is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023
+INFO [2023-03-08 14:19:32] Final sample directory is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS
+INFO [2023-03-08 14:19:32] Working directory is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS
+INFO [2023-03-08 14:19:32] Host is human
+INFO [2023-03-08 14:19:32] Project type is metagenome
+INFO [2023-03-08 14:19:32] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 14:19:50] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 14:20:02] Input sequences are reads.
+INFO [2023-03-08 14:20:02] Will assemble reads into contigs.
+INFO [2023-03-08 14:20:02] Creating directory to hold reads.
+INFO [2023-03-08 14:20:02] You supplied R1, R2 reads.
+INFO [2023-03-08 14:20:02] Copying R1
+INFO [2023-03-08 14:20:03] Decompressing gzipped file R1
+INFO [2023-03-08 14:20:31] Copying R2
+INFO [2023-03-08 14:20:43] Decompressing gzipped file R2
+INFO [2023-03-08 14:21:06] Found two fastq files. Will assume these are paired reads.
+INFO [2023-03-08 14:21:06] Sequences are Illumina reads. Clipping adapters and quality trimming fastq reads.
+INFO [2023-03-08 14:22:23] Aligning trimmed reads to the human genome.
+INFO [2023-03-08 14:31:33] Alignment to host completed with 0.03% overall alignment rate
+INFO [2023-03-08 14:31:54] The number of bases available for assembly is 3840076304 bases.
+INFO [2023-03-08 14:31:54] The mean read length for use in assembly is 100 bases.
+INFO [2023-03-08 14:31:55] Assembling reads using megahit. Please be patient...
+INFO [2023-03-08 14:31:55] Assembler command used: megahit --k-min 23 --k-max 99 --k-step 10 --min-count 2 -m 226713600000 --num-cpu-threads 56 -o AAA00109_assembly --min-contig-len 500 --verbose -1 /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/AAA00109_reads/AAA00109_NAHS_PE.1.fastq -2 /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/AAA00109_reads/AAA00109_NAHS_PE.2.fastq -r /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/AAA00109_reads/AAA00109_NAHS_SE.fastq
+INFO [2023-03-08 14:52:07] Assembly of reads using megahit complete.
+INFO [2023-03-08 14:52:07] Ensuring contigs have a minimum size of 500 bp.
+INFO [2023-03-08 14:52:25] Adjusting sequence headers.
+INFO [2023-03-08 14:53:34] Counting k-mers of query sequences with kraken2 and using confidence score 5e-06
+INFO [2023-03-08 14:56:03] A total of 13 contigs out of 33936 were eliminated for being classified as metazoa (host) DNA.
+INFO [2023-03-08 14:57:07] Contigs have been obtained.
+INFO [2023-03-08 14:57:07] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 14:57:07] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 14:58:03] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 14:58:03] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 14:58:21] Writing contigs for annotation.
+INFO [2023-03-08 14:58:56] Annotating contigs with prokka.
+INFO [2023-03-08 14:58:56] Annotation will skip tbl2asn step in prokka, as this step is unnecessarily lengthy when there are more than 10,000 contigs.
+INFO [2023-03-08 15:50:06] Contigs have been annotated.
+INFO [2023-03-08 15:50:06] Gathering predicted proteins.
+INFO [2023-03-08 15:50:13] Gathering predicted genes.
+INFO [2023-03-08 15:50:26] Making featuredata dataframe from bedfile.
+INFO [2023-03-08 15:50:44] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 15:50:44] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 15:52:29] Writing proteome for Interproscan annotation.
+INFO [2023-03-08 15:52:44] Launching Interproscan analysis of proteome.
+INFO [2023-03-08 15:52:47] Found 36 16S rRNA sequences in contigs. Classifying them via dada2 using database /data/TBHD_share/valencia/jams_db/JAMSdb202212/16Sdbs/silva_species_assignment_v138.1.fa.gz
+INFO [2023-03-08 15:52:47] Step 1 - Classifying down to Genus level using a Naive Bayesian Classifier
+INFO [2023-03-08 15:55:09] Step 2 - Classifying down to Species level using exact matches.
+INFO [2023-03-08 15:59:47] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 15:59:47] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 16:00:25] Evaluating completeness of genomes.
+INFO [2023-03-08 16:00:43] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 16:00:43] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 16:01:21] Using kraken2 with JAMStaxtable
+INFO [2023-03-08 16:01:22] Creating directory to calculate read coverage.
+INFO [2023-03-08 16:01:22] Writing contigs for read alignment.
+INFO [2023-03-08 16:01:59] Building index.
+INFO [2023-03-08 16:03:56] Aligning reads back to contigs as unpaired reads.
+INFO [2023-03-08 16:03:56] Aligning reads back to contigs.
+INFO [2023-03-08 16:12:19] Alignment of reads to contigs is complete with 94.54% overall alignment rate
+INFO [2023-03-08 16:12:19] Unassembled reads will not be classified and will be discarded.
+INFO [2023-03-08 16:12:19] Indexing and sorting alignment.
+INFO [2023-03-08 16:13:39] Calculating base coverage depth in contigs.
+INFO [2023-03-08 16:23:19] Calculating coverage depth for features.
+INFO [2023-03-08 16:42:55] Unassembled read taxonomic relative abundance will not be taken into account.
+INFO [2023-03-08 16:42:55] Computing dose of Last Known Taxa.
+INFO [2023-03-08 16:42:55] Exporting contigsdata
+INFO [2023-03-08 16:42:55] Exporting assemblystats
+INFO [2023-03-08 16:42:55] Exporting LKTdose
+INFO [2023-03-08 16:42:55] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 16:42:55] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 16:43:34] Writing predicted proteome to serve as query.
+INFO [2023-03-08 16:43:48] Writing predicted genes to serve as query.
+INFO [2023-03-08 16:44:19] Blasting genes against plasmidfinder database
+INFO [2023-03-08 16:44:48] Blasting genes against resfinder database
+INFO [2023-03-08 16:45:15] Exporting plasmidfinder
+INFO [2023-03-08 16:45:15] Exporting resfinder
+INFO [2023-03-08 16:45:15] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 16:45:15] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 16:45:54] Adding plasmidfinder results to featuredata.
+INFO [2023-03-08 16:45:54] Adding resfinder results to featuredata.
+INFO [2023-03-08 16:45:54] Calculating Tetranucleotide frequencies for all features
+INFO [2023-03-08 16:47:37] Calculating Tetranucleotide frequencies for all contigs
+INFO [2023-03-08 16:48:07] Calculating codon usage frequencies for all features
+INFO [2023-03-08 16:52:51] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 16:52:51] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 16:53:31] Harvesting functional data.
+INFO [2023-03-08 16:53:40] Interproscan analysis of proteome is still incomplete.
+INFO [2023-03-08 16:53:40] There are 21  Interpro jobs running for this sample.
+INFO [2023-03-08 16:53:40] The proportion of Interpro jobs complete is currently 0.78
+INFO [2023-03-08 16:53:40] Will check again in 5 minutes time. This is attempt 1 of 50 before giving up.
+INFO [2023-03-08 16:58:40] Interproscan analysis of proteome is still incomplete.
+INFO [2023-03-08 16:58:40] There are 12  Interpro jobs running for this sample.
+INFO [2023-03-08 16:58:40] The proportion of Interpro jobs complete is currently 0.88
+INFO [2023-03-08 16:58:40] Will check again in 5 minutes time. This is attempt 2 of 50 before giving up.
+INFO [2023-03-08 17:03:41] Harvesting and integrating Interproscan data.
+INFO [2023-03-08 17:04:16] Found the following Interproscan analyses to harvest: AntiFam, CDD, Coils, FunFam, Gene3D, PANTHER, Pfam, Phobius, PRINTS, ProSitePatterns, SFLD, SignalP_EUK, SignalP_GRAM_NEGATIVE, SignalP_GRAM_POSITIVE, SMART, SUPERFAMILY, TIGRFAM, Interpro, GO, MetaCyc
+INFO [2023-03-08 17:04:16] Adding Interproscan analyses signatures to featuredata with 20 CPUs. Please be patient.
+INFO [2023-03-08 17:04:16] Adding AntiFam signatures to featuredata.
+INFO [2023-03-08 17:04:16] Adding CDD signatures to featuredata.
+INFO [2023-03-08 17:04:16] Adding Coils signatures to featuredata.
+INFO [2023-03-08 17:04:17] Adding FunFam signatures to featuredata.
+INFO [2023-03-08 17:04:17] Adding Gene3D signatures to featuredata.
+INFO [2023-03-08 17:04:17] Adding PANTHER signatures to featuredata.
+INFO [2023-03-08 17:04:17] Adding Pfam signatures to featuredata.
+INFO [2023-03-08 17:04:17] Adding Phobius signatures to featuredata.
+INFO [2023-03-08 17:04:17] Adding PRINTS signatures to featuredata.
+INFO [2023-03-08 17:04:18] Adding ProSitePatterns signatures to featuredata.
+INFO [2023-03-08 17:04:18] Adding SFLD signatures to featuredata.
+INFO [2023-03-08 17:04:18] Adding SignalP_EUK signatures to featuredata.
+INFO [2023-03-08 17:04:18] Adding SignalP_GRAM_NEGATIVE signatures to featuredata.
+INFO [2023-03-08 17:04:18] Adding SignalP_GRAM_POSITIVE signatures to featuredata.
+INFO [2023-03-08 17:04:18] Adding SMART signatures to featuredata.
+INFO [2023-03-08 17:04:18] Adding SUPERFAMILY signatures to featuredata.
+INFO [2023-03-08 17:04:19] Adding TIGRFAM signatures to featuredata.
+INFO [2023-03-08 17:04:19] Adding Interpro signatures to featuredata.
+INFO [2023-03-08 17:04:19] Adding GO signatures to featuredata.
+INFO [2023-03-08 17:04:19] Adding MetaCyc signatures to featuredata.
+INFO [2023-03-08 17:06:39] Creating counts table for Interpro signatures.
+INFO [2023-03-08 17:07:46] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 17:07:46] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 17:08:29] Obtaining read statistics.
+INFO [2023-03-08 17:08:55] Host contamination rate is 0 %
+INFO [2023-03-08 17:08:55] Contig assembly rate is 94.6 %
+INFO [2023-03-08 17:08:55] Banking Non-Aligned to Host Species (microbiota) reads to outdir.
+INFO [2023-03-08 17:10:25] Exporting featuredata
+INFO [2023-03-08 17:10:35] Exporting TNF_features
+INFO [2023-03-08 17:10:43] Exporting TNF_contigs
+INFO [2023-03-08 17:10:47] Exporting ucobias
+INFO [2023-03-08 17:10:49] Exporting interproscanoutput
+INFO [2023-03-08 17:12:07] Exporting featuredose
+INFO [2023-03-08 17:12:12] Exporting readstats
+INFO [2023-03-08 17:12:12] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 17:12:12] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 17:13:41] Gathering information on JAMS analysis run.
+INFO [2023-03-08 17:13:41] Exporting plasmidfinder
+INFO [2023-03-08 17:13:41] Exporting resfinder
+INFO [2023-03-08 17:13:41] Exporting projinfo
+INFO [2023-03-08 17:13:41] Exporting taxa_16S_cons
+INFO [2023-03-08 17:13:41] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 17:13:41] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 17:15:09] Making .jams file
+INFO [2023-03-08 17:15:43] Workspace image is /gpfs/gsfs12/users/NRTS_share/SMS_NIAID_0162/fqfiles/Batch2/JAMS_2023/AAA00109_JAMS/.RData
+INFO [2023-03-08 17:15:43] Random Access Memory (RAM) status
+INFO [2023-03-08 17:15:45] Saving project workspace image using fastSave package with 56 CPUs
+INFO [2023-03-08 17:17:14] Random Access Memory (RAM) status
+INFO [2023-03-08 17:17:18] Compressing JAMS run for sample AAA00109
