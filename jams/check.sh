@@ -46,7 +46,7 @@ fi
 
 new_swarm=$(dirname $swarm_file)/failed.swarm
 jams_success="Thank you for using JAMS. Use JAMSbeta to compare between JAMS samples."
-echo $new_swarm
+# echo $new_swarm
 
 # Check if the new swarm file exists, if so, then delete is since we are going to use append in the loop.
 remove_old() {
@@ -55,6 +55,14 @@ remove_old() {
 		rm "$new_swarm"
 	fi
 }
+
+# Make sure there are log files in the directory...
+if [ "$(ls -A $input_dir/*.log)" ]; then
+   echo "Found log files in $input_dir"
+else
+   echo "No log files found in $input_dir. Exiting..."
+   exit 0
+fi
 
 # Check the number of jobs that failed using grep and wc.
 n_failed=$(grep -L "$jams_success" $input_dir/*.log | wc -l)
